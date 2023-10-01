@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { useState } from 'react';
+import Banner from './Homepage/Banner';
+import ContactForm from './Homepage/ContactForm';
+import Education from './Homepage/Education';
+import Navbar from './Homepage/Navbar';
+import Skills from './Homepage/Skills';
+import Footer from './Homepage/Footer';
+import Project from './Homepage/Project';
+import About from './Homepage/About';
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`${!!isDarkMode ? 'bg-black' : 'bg-white'} `}>
+      <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
+      <Banner></Banner>
+      <Skills />
+      <About/>
+      <Project></Project>
+      <Education></Education>
+
+      <ContactForm></ContactForm>
+      <Footer/>
     </div>
   );
 }
